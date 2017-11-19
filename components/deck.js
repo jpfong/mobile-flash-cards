@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
+// import DeckListItem from './deck-list-item'
 
-class CreateDeck extends Component {
+class Deck extends Component {
   render() {
     return (
       <View>
-        <Text>Create deck</Text>
+        <Text>AAAA</Text>
       </View>
     )
   }
 }
 
-
-export default CreateDeck
+export default Deck

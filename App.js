@@ -4,6 +4,7 @@ import {TabNavigator, StackNavigator} from 'react-navigation'
 import DecksList from './components/decks-list'
 import CreateDeck from './components/create-deck'
 import {FontAwesome, Ionicons} from '@expo/vector-icons'
+import Deck from './components/deck'
 
 const Tabs = TabNavigator({
   History: {
@@ -23,6 +24,9 @@ const Tabs = TabNavigator({
 const MainNavigator = StackNavigator({
   Home: {
     screen: Tabs,
+  },
+  Deck: {
+    screen: Deck
   }
 })
 

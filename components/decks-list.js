@@ -4,9 +4,9 @@ import DeckListItem from './deck-list-item'
 
 class DecksList extends Component {
 
-  renderItem = ({item}) => {
-    return <DeckListItem {...item}/>
-  }
+  renderItem = ({item}) => (
+    <DeckListItem {...item}/>
+  )
 
   render() {
     const decks = [{
@@ -28,6 +28,5 @@ class DecksList extends Component {
     );
   }
 }
-
 
 export default DecksList
