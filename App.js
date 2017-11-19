@@ -3,20 +3,19 @@ import { StyleSheet, Text, View } from 'react-native'
 import {TabNavigator, StackNavigator} from 'react-navigation'
 import DecksList from './components/decks-list'
 import CreateDeck from './components/create-deck'
+import {FontAwesome, Ionicons} from '@expo/vector-icons'
 
 const Tabs = TabNavigator({
   History: {
     screen: DecksList,
     navigationOptions: {
-      tabBarLabel: 'Decks',
-      // tabBarIcon: ({tintColor}) => <Ionicons name='ios-bookmarks' size={30} color={tintColor}/>
+      tabBarLabel: 'Decks'
     },
   },
   AddEntry: {
     screen: CreateDeck,
     navigationOptions: {
-      tabBarLabel: 'New Deck',
-      // tabBarIcon: ({tintColor}) => <FontAwesome name='plus-square' size={30} color={tintColor}/>
+      tabBarLabel: 'New Deck'
     },
   }
 })

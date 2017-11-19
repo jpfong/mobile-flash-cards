@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-export default function deckListItem ({deckName, cardsCount}) {
+export default function DeckListItem ({deckName, cardsCount}) {
   return (
     <View>
       <Text>
