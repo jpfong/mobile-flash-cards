@@ -11,16 +11,16 @@ class DeckListItem extends Component {
   }
 
   render() {
-    const {deckName, cardsCount} = this.props
+    const {title, questions} = this.props
 
     return (
       <TouchableOpacity onPress={this.onPress}>
         <View style={styles.item}>
           <Text>
-            {deckName}
+            {title}
           </Text>
           <Text>
-            {cardsCount} cards
+            {questions.length} cards
           </Text>
         </View>
       </TouchableOpacity>

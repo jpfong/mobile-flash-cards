@@ -3,8 +3,10 @@ import { StyleSheet, Text, View } from 'react-native'
 import {TabNavigator, StackNavigator} from 'react-navigation'
 import DecksList from './components/decks-list'
 import CreateDeck from './components/create-deck'
-import {FontAwesome, Ionicons} from '@expo/vector-icons'
 import Deck from './components/deck'
+import {createStore} from 'redux'
+import {Provider} from 'react-redux'
+import reducer from './reducers'
 
 const Tabs = TabNavigator({
   History: {
@@ -33,9 +35,11 @@ const MainNavigator = StackNavigator({
 export default class App extends React.Component {
   render() {
     return (
-      <View style={{flex: 1}}>
-        <MainNavigator />
-      </View>
+      <Provider store={createStore(reducer)}>
+        <View style={{flex: 1}}>
+          <MainNavigator />
+        </View>
+      </Provider>
     )
   }
 }
