@@ -9,13 +9,13 @@ import {Provider} from 'react-redux'
 import reducer from './reducers'
 
 const Tabs = TabNavigator({
-  History: {
+  Home: {
     screen: DecksList,
     navigationOptions: {
       tabBarLabel: 'Decks'
     },
   },
-  AddEntry: {
+  AddDeck: {
     screen: CreateDeck,
     navigationOptions: {
       tabBarLabel: 'New Deck'
@@ -29,6 +29,9 @@ const MainNavigator = StackNavigator({
   },
   Deck: {
     screen: Deck
+  },
+  AddDeck: {
+    screen: CreateDeck
   }
 })
 
