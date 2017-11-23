@@ -13,6 +13,9 @@ class DecksList extends Component {
   componentDidMount () {
     const { dispatch } = this.props
 
+    console.log('this.props!!', this.props)
+
+    /*
     fetchDecks().then((decks) => {
       console.log('decks', decks)
       dispatch(receiveDecks(decks))
@@ -20,7 +23,8 @@ class DecksList extends Component {
       .catch((err) => {
       console.log('err', err)
       this.setState(() => ({ready: true}))
-    })
+    }) */
+    this.setState(() => ({ready: true}))
   }
 
   renderItem = ({item}) => (

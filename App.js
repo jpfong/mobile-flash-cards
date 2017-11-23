@@ -15,7 +15,7 @@ const Tabs = TabNavigator({
       tabBarLabel: 'Decks'
     },
   },
-  AddDeck: {
+  Create: {
     screen: CreateDeck,
     navigationOptions: {
       tabBarLabel: 'New Deck'
@@ -27,12 +27,12 @@ const MainNavigator = StackNavigator({
   Home: {
     screen: Tabs,
   },
+  Create: {
+    screen: CreateDeck
+  },
   Deck: {
     screen: Deck
   },
-  AddDeck: {
-    screen: CreateDeck
-  }
 })
 
 export default class App extends React.Component {
