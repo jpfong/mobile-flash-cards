@@ -5,7 +5,7 @@ export function formatDecks (results) {
   if (results === null) {
     return setDummyData()
   }
-  return results
+  return JSON.parse(results)
 }
 
 function setDummyData () {
