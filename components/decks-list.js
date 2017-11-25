@@ -21,28 +21,16 @@ class DecksList extends Component {
         d.key = d.title
       })
       this.setState(() => ({ decksArray }))
-      // console.log('decksArray', this.state.decksArray)
     }).then(() => this.setState(() => ({ready: true})))
-    /*
-    fetchDecks().then((decks) => {
-      console.log('decks', decks)
-      dispatch(receiveDecks(decks))
-    }).then(() => this.setState(() => ({ready: true})))
-      .catch((err) => {
-      console.log('err', err)
-      this.setState(() => ({ready: true}))
-    }) */
     this.setState(() => ({ready: true}))
   }
 
   renderItem = ({item}) => (
-    <DeckListItem {...item}/>
+    <DeckListItem {...item} navigation={this.props.navigation}/>
   )
 
   render() {
     const {decksArray} = this.state
-    const {decks} = this.props
-    console.log('decks!!!', decks)
     const { ready } = this.state
 
     if (ready === false) {

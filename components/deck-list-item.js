@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, ListItem, StyleSheet, Platform } from 'react-native'
-import { NavigationActions } from 'react-navigation'
 
 class DeckListItem extends Component {
   onPress = () => {
-    const {deckName} = this.props
-    this.props.navigation.navigate(
+    const {navigation, title} = this.props
+    navigation.navigate(
       'Deck',
-      { deckName })
+      { title })
   }
 
   render() {

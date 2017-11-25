@@ -1,36 +1,59 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
-// import DeckListItem from './deck-list-item'
+import { Text, View, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
-import TextButton from './TextButton'
 
 class Deck extends Component {
-  componentDidMount () {
-    const {dispatch} = this.props
-
-    console.log('this.props!aaa!', this.props)
+  state: {
+    deck: null
   }
 
-  createDeck = () => {
-    console.log('navigate', this.props)
-    this.props.navigation.navigate('Create')
+  constructor(props) {
+    super(props);
+    this.state = { deck: null };
+  }
+
+  componentDidMount () {
+    console.log('this.props', this.props)
+    const {title} = this.props.navigation.state.params
+    console.log('title', title)
+    this.setState({deck: this.props.decks[title]})
+    console.log('deck', this.state.deck)
   }
 
   render() {
+    const {deck} = this.state
+    if (deck) {
+      return (
+        <View style={styles.item}>
+          <Text>{deck.title}</Text>
+          <Text>
+            {deck.questions.length} cards
+          </Text>
+        </View>
+      )
+    }
     return (
       <View>
-        <Text>AAAA</Text>
-        <TextButton style={{margin: 20}} onPress={this.createDeck}>
-          CREATE DECK
-        </TextButton>
+        <Text>Wait</Text>
       </View>
     )
+
   }
 }
 
-function mapStateToProps (deck) {
+const styles = StyleSheet.create({
+  item: {
+    padding: 20,
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 17,
+    justifyContent: 'center',
+  }
+})
+
+function mapStateToProps (decks) {
   return {
-    deck
+    decks
   }
 }
 

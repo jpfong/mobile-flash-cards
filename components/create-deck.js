@@ -6,12 +6,12 @@ import { connect } from 'react-redux'
 class CreateDeck extends Component {
 
   state : {
-    deckName: ''
+    title: ''
   }
 
   constructor(props) {
     super(props);
-    this.state = { deckName: '' };
+    this.state = { title: '' };
   }
 
   createDeck = () => {
@@ -25,8 +25,8 @@ class CreateDeck extends Component {
       <View>
         <TextInput
           style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-          onChangeText={(deckName) => this.setState({deckName})}
-          value={this.state.deckName}
+          onChangeText={(title) => this.setState({title})}
+          value={this.state.title}
         />
         <TextButton style={{margin: 20}} onPress={this.createDeck}>
           CREATE DECK
