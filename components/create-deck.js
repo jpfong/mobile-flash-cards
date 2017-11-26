@@ -16,7 +16,7 @@ class CreateDeck extends Component {
 
   createDeck = () => {
     if (this.state.deckName) {
-      this.props.navigation.navigate('Deck', { deckName: this.state.deckName })
+      this.props.navigation.navigate('Deck', { title: this.state.title })
     }
   }
 
@@ -25,6 +25,8 @@ class CreateDeck extends Component {
       <View>
         <TextInput
           style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+          placeholder="Deck Name"
+          autoFocus={true}
           onChangeText={(title) => this.setState({title})}
           value={this.state.title}
         />

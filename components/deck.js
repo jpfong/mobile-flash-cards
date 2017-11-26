@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
+import TextButton from './TextButton'
 
 class Deck extends Component {
   state: {
@@ -12,12 +13,15 @@ class Deck extends Component {
     this.state = { deck: null };
   }
 
-  componentDidMount () {
-    console.log('this.props', this.props)
+  componentDidMount() {
     const {title} = this.props.navigation.state.params
-    console.log('title', title)
     this.setState({deck: this.props.decks[title]})
-    console.log('deck', this.state.deck)
+  }
+
+  goToAddQuestion = () => {
+    const {title} = this.props.navigation.state.params
+
+    this.props.navigation.navigate('AddQuestion', { title })
   }
 
   render() {
@@ -29,6 +33,12 @@ class Deck extends Component {
           <Text>
             {deck.questions.length} cards
           </Text>
+          <TextButton style={{margin: 20}} onPress={this.createDeck}>
+            START QUIZ
+          </TextButton>
+          <TextButton style={{margin: 20}} onPress={this.goToAddQuestion}>
+            ADD QUESTION
+          </TextButton>
         </View>
       )
     }

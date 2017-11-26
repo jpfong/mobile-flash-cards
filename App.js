@@ -4,6 +4,7 @@ import {TabNavigator, StackNavigator} from 'react-navigation'
 import DecksList from './components/decks-list'
 import CreateDeck from './components/create-deck'
 import Deck from './components/deck'
+import AddQuestion from './components/add-question'
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 import reducer from './reducers'
@@ -33,6 +34,9 @@ const MainNavigator = StackNavigator({
   Deck: {
     screen: Deck
   },
+  AddQuestion: {
+    screen: AddQuestion
+  }
 })
 
 export default class App extends React.Component {
@@ -46,14 +50,3 @@ export default class App extends React.Component {
     )
   }
 }
-
-/*
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-*/
