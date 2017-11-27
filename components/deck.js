@@ -33,7 +33,7 @@ class Deck extends Component {
           <Text>
             {deck.questions.length} cards
           </Text>
-          <TextButton style={{margin: 20}} onPress={this.createDeck}>
+          <TextButton style={{margin: 20}} onPress={this.createDeck} disabled={deck.questions.length <= 0}>
             START QUIZ
           </TextButton>
           <TextButton style={{margin: 20}} onPress={this.goToAddQuestion}>

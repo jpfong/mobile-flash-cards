@@ -6,8 +6,8 @@ export function fetchDecks() {
     .then(formatDecks)
 }
 
-export function submitEntry({entry, key}) {
+export function addDeck(deck) {
   return AsyncStorage.mergeItem(FLASHCARDS_STORAGE_KEY, JSON.stringify({
-    [key]: entry
+    [deck.title]: deck
   }))
 }
