@@ -28,6 +28,7 @@ class CreateDeck extends Component {
         fetchDecks().then((decksUpdated) => {
           dispatch(receiveDecks(decksUpdated))
           this.props.navigation.navigate('Deck', { title: this.state.title })
+          this.state = { title: '' };
         })
       })
     }

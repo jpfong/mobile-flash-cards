@@ -5,6 +5,7 @@ import DecksList from './components/decks-list'
 import CreateDeck from './components/create-deck'
 import Deck from './components/deck'
 import AddQuestion from './components/add-question'
+import Quiz from './components/quiz'
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 import reducer from './reducers'
@@ -36,6 +37,9 @@ const MainNavigator = StackNavigator({
   },
   AddQuestion: {
     screen: AddQuestion
+  },
+  Quiz: {
+    screen: Quiz
   }
 })
 

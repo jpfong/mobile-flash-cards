@@ -29,6 +29,11 @@ class DecksList extends Component {
     <DeckListItem {...item} navigation={this.props.navigation}/>
   )
 
+  shouldComponentUpdate(nextProps) {
+    // console.log('nextProps', nextProps)
+    return true // nextProps.decks != nextProps.decks
+  }
+
   render() {
     const {decksArray} = this.state
     const { ready } = this.state

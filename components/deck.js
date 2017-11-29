@@ -24,6 +24,12 @@ class Deck extends Component {
     this.props.navigation.navigate('AddQuestion', { title })
   }
 
+  goToQuiz = () => {
+    const {title} = this.props.navigation.state.params
+
+    this.props.navigation.navigate('Quiz', { title })
+  }
+
   render() {
     const {deck} = this.state
     if (deck) {
@@ -33,7 +39,7 @@ class Deck extends Component {
           <Text>
             {deck.questions.length} cards
           </Text>
-          <TextButton style={{margin: 20}} onPress={this.createDeck} disabled={deck.questions.length <= 0}>
+          <TextButton style={{margin: 20}} onPress={this.goToQuiz} disabled={deck.questions.length <= 0}>
             START QUIZ
           </TextButton>
           <TextButton style={{margin: 20}} onPress={this.goToAddQuestion}>
