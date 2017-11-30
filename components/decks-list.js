@@ -22,16 +22,14 @@ class DecksList extends Component {
       })
       this.setState(() => ({ decksArray }))
     }).then(() => this.setState(() => ({ready: true})))
-    this.setState(() => ({ready: true}))
   }
 
   renderItem = ({item}) => (
     <DeckListItem {...item} navigation={this.props.navigation}/>
   )
 
-  shouldComponentUpdate(nextProps) {
-    // console.log('nextProps', nextProps)
-    return true // nextProps.decks != nextProps.decks
+  componentDidUpdate(prevProps, prevState) {
+    console.log('prevProps', prevProps.decks)
   }
 
   render() {
