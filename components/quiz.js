@@ -37,14 +37,23 @@ class Quiz extends Component {
     return `${this.state.correctAnswerCount / this.state.deck.questions.length * 100} %`
   }
 
+  handleRetakeQuiz = () => {
+
+  }
+
+  handleBackToDeck = () => {
+    console.log('this.props.navigation', this.props.navigation)
+    this.props.navigation.goBack()
+  }
+
   render() {
     const {deck, questionIndex, showAnswer} = this.state
     if (deck) {
       return (
         <View style={styles.item}>
-          <Text style={styles.questionCount}>{questionIndex + 1} / {deck.questions.length}</Text>
           {questionIndex < deck.questions.length ?
             <View>
+              <Text style={styles.questionCount}>{questionIndex + 1} / {deck.questions.length}</Text>
               <Text style={styles.questionAnswerText}>{showAnswer ? deck.questions[questionIndex].answer : deck.questions[questionIndex].question}</Text>
               <TextButton style={{margin: 20}} onPress={this.toggleShowAnswer}>
                 Show Answer
@@ -58,6 +67,12 @@ class Quiz extends Component {
             </View> :
             <View>
               <Text style={styles.correctAnswerRateText}>Your result: {this.showPctCorrectAnswer()}</Text>
+              <TextButton style={{margin: 20}} onPress={this.handleRetakeQuiz}>
+                RESTART QUIZ
+              </TextButton>
+              <TextButton style={{margin: 20}} onPress={this.handleBackToDeck}>
+                BACK TO DECK
+              </TextButton>
             </View>
           }
 
