@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, TextInput } from 'react-native'
+import { Text, View, TextInput, StyleSheet } from 'react-native'
 import TextButton from './TextButton'
 import { connect } from 'react-redux'
 import { addDeck, fetchDecks } from '../utils/api'
@@ -41,17 +41,17 @@ class AddDeck extends Component {
     const { question, answer } = this.state
 
     return (
-      <View>
+      <View style={styles.formWrapper}>
         <TextInput
-          style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+          style={styles.textInput}
           autoFocus={true}
-          placeholder="Question"
+          placeholder='Question'
           onChangeText={(question) => this.setState({question})}
           value={this.state.question}
         />
         <TextInput
-          style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-          placeholder="Answer"
+          style={styles.textInput}
+          placeholder='Answer'
           onChangeText={(answer) => this.setState({answer})}
           value={this.state.answer}
         />
@@ -62,6 +62,23 @@ class AddDeck extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  formWrapper: {
+    flex: 1,
+    marginTop: 24,
+  },
+  textInput: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginLeft: 8,
+    marginRight: 8,
+    marginBottom: 8,
+    paddingLeft: 8,
+    paddingRight: 8,
+  }
+})
 
 function mapStateToProps (decks) {
   return {

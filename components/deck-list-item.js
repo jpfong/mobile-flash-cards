@@ -20,7 +20,7 @@ class DeckListItem extends Component {
             {title}
           </Text>
           <Text>
-            {questions.length} cards
+            {questions.length} { questions.length > 1 ? `cards` : `card` }
           </Text>
         </View>
       </TouchableOpacity>
