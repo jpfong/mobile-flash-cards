@@ -1,5 +1,8 @@
+`Development`
+### The app has been tested with iOS simulator
+
 `install dependencies`
-### `npm install`
+### `yarn install`
 
 `Launch the app`
-### `npm start`
+### `yarn start`

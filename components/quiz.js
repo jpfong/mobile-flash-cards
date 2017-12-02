@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import TextButton from './TextButton'
+import { clearLocalNotification, setLocalNotification } from '../utils/helpers'
 
 class Quiz extends Component {
   state: {
@@ -27,10 +28,12 @@ class Quiz extends Component {
 
   handleCorrect = () => {
     this.setState({correctAnswerCount: this.state.correctAnswerCount + 1, showAnswer: false, questionIndex: this.state.questionIndex + 1 })
+    this.setNotifications()
   }
 
   handleIncorrect = () => {
     this.setState({ showAnswer: false, questionIndex: this.state.questionIndex + 1 })
+    this.setNotifications()
   }
 
   showPctCorrectAnswer() {
@@ -42,8 +45,15 @@ class Quiz extends Component {
   }
 
   handleBackToDeck = () => {
-    console.log('this.props.navigation', this.props.navigation)
     this.props.navigation.goBack()
+  }
+
+  setNotifications() {
+    const {deck, questionIndex} = this.state
+    if (questionIndex > deck.questions.length) {
+      // Clear local notification
+      clearLocalNotification().then(setLocalNotification)
+    }
   }
 
   render() {

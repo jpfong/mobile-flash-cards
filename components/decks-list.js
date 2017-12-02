@@ -28,10 +28,6 @@ class DecksList extends Component {
     <DeckListItem {...item} navigation={this.props.navigation}/>
   )
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log('prevProps', prevProps.decks)
-  }
-
   render() {
     const {decksArray} = this.state
     const { ready } = this.state
