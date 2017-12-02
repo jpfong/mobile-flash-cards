@@ -9,18 +9,21 @@ import Quiz from './components/quiz'
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 import reducer from './reducers'
+import { FontAwesome, Ionicons } from '@expo/vector-icons'
 
 const Tabs = TabNavigator({
   Home: {
     screen: DecksList,
     navigationOptions: {
-      tabBarLabel: 'Decks'
+      tabBarLabel: 'Decks',
+      tabBarIcon: ({ tintColor }) => <Ionicons name='ios-bookmarks' size={30} color={tintColor} />
     },
   },
   Create: {
     screen: CreateDeck,
     navigationOptions: {
-      tabBarLabel: 'New Deck'
+      tabBarLabel: 'New Deck',
+      tabBarIcon: ({ tintColor }) => <FontAwesome name='plus-square' size={30} color={tintColor} />
     },
   }
 })
