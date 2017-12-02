@@ -38,7 +38,7 @@ class Quiz extends Component {
   }
 
   handleRetakeQuiz = () => {
-
+    this.setState({questionIndex: 0, showAnswer: false})
   }
 
   handleBackToDeck = () => {
