@@ -7,7 +7,7 @@ export function clearLocalNotification () {
     .then(Notifications.cancelAllScheduledNotificationsAsync)
 }
 
-function createNotification () {
+createNotification = () => {
   return {
     title: 'Take a quiz!',
     body: "👋 don't forget to take a quiz for today!",
