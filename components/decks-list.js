@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, FlatList, Text } from 'react-native'
+import { View, FlatList } from 'react-native'
 import DeckListItem from './deck-list-item'
 import { receiveDecks } from '../actions'
 import { connect } from 'react-redux'
@@ -8,19 +8,13 @@ import { AppLoading} from 'expo'
 
 class DecksList extends Component {
   state = {
-    ready: false,
-    decksArray: []
+    ready: false
   }
   componentDidMount () {
     const { dispatch } = this.props
 
     fetchDecks().then((decks) => {
       dispatch(receiveDecks(decks))
-      const decksArray = Object.values(decks)
-      decksArray.map((d) => {
-        d.key = d.title
-      })
-      this.setState(() => ({ decksArray }))
     }).then(() => this.setState(() => ({ready: true})))
   }
 
@@ -29,12 +23,16 @@ class DecksList extends Component {
   )
 
   render() {
-    const {decksArray} = this.state
     const { ready } = this.state
+    const { decks } = this.props
 
     if (ready === false) {
       return <AppLoading />
     }
+    const decksArray = Object.values(decks)
+    decksArray.map((d) => {
+       d.key = d.title
+    })
     return (
       <View>
         <FlatList
